@@ -3,6 +3,7 @@
 @import 'prop';
 
 #page-1 {
+	position: relative;
 	display: flex;
 	padding: 2.5rem 5.5rem 0 3rem;
 	flex-direction: column;
@@ -79,6 +80,10 @@
 			font-size: 3.15rem;
 			line-height: 1.15em;
 			font-weight: 800;
+
+			@media screen and (max-width: 79em) {
+				font-size: 2rem;
+			}
 		}
 	}
 
@@ -111,5 +116,9 @@
 		font-weight: bold;
 		color: white;
 		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
+	}
+
+	.nav-page .btn:not(.active)::before {
+		background-color: white;
 	}
 }

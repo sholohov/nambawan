@@ -30,16 +30,15 @@
 </head>
 
 <body>
-	<div class="content-wrapper">
-		{{> aside-left}}
-		{{> nav-page}}
-		<main id="main">
-			{{> page-1}}
-			{{> page-2}}
-			{{> page-3}}
-			{{> footer}}
-		</main>
-	</div>
+	{{> aside-left}}
+	<main id="main">
+		{{> page-1}}
+		{{> page-2}}
+		{{> page-3}}
+		{{> footer}}
+	</main>
+	<button id="move-to-top">^</button>
+	{{> preloader}}
 </body>
 
 </html>

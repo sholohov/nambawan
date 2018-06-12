@@ -72,12 +72,8 @@ html body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   font: 1em/1.25em 'Raleway', Arial, Helvetica, 'sans-serif';
-}
-html body .content-wrapper {
-  display: block;
-  height: 100%;
-  padding: 0;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 html body * {
   -webkit-box-sizing: border-box;
@@ -150,7 +146,6 @@ html body * {
 #aside-left .social .link.inst a {
   background: url(../img/nav/instagram_ico.png) left / 1.4rem no-repeat;
 }
-
 
 @font-face {
   font-family: 'Raleway';
@@ -265,8 +260,71 @@ html body * {
   height: 100%;
   margin: 0 0 0 4.25rem;
   background-color: grey;
-  overflow-x: hidden;
-  overflow-y: auto;
+}
+
+#move-to-top {
+  display: none;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0;
+  line-height: 1;
+  height: 3rem;
+  width: 3rem;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: white;
+  -webkit-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.nav-page {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.nav-page .block {
+  width: 2rem;
+  margin: 0 2rem 0 0;
+  text-align: right;
+}
+.nav-page .block .btn {
+  display: block;
+  float: right;
+  clear: both;
+  height: 1rem;
+  width: 50%;
+}
+.nav-page .block .btn::before {
+  content: '';
+  display: block;
+  height: 1.5px;
+  position: relative;
+  top: 50%;
+}
+.nav-page .block .btn.active {
+  width: 100%;
+}
+.nav-page .block .btn.active::before {
+  background-color: #10e08b;
 }
 
 #page-1 {
@@ -360,6 +418,11 @@ html body * {
   line-height: 1.15em;
   font-weight: 800;
 }
+@media screen and (max-width: 79em) {
+  #page-1 > .description .what-doing {
+    font-size: 2rem;
+  }
+}
 #page-1 > .services {
   display: -webkit-box;
   display: -webkit-flex;
@@ -402,8 +465,12 @@ html body * {
   color: white;
   background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
 }
+#page-1 .nav-page .btn:not(.active)::before {
+  background-color: white;
+}
 
 #page-2 {
+  position: relative;
   display: block;
   color: black;
   background-color: #fff;
@@ -509,6 +576,11 @@ html body * {
   line-height: 1.125em;
   font-weight: 800;
 }
+@media screen and (max-width: 79em) {
+  #page-2 .content .description .title {
+    font-size: 2rem;
+  }
+}
 #page-2 .content .description .text {
   margin: 1.5rem 0;
   font-size: 1rem;
@@ -545,8 +617,19 @@ html body * {
   background-image: url(../img/space.png);
   margin: 0 1rem 0 0;
 }
+@media screen and (max-width: 79em) {
+  #page-2 .content .description .links .item {
+    -webkit-background-size: 2rem 2rem;
+            background-size: 2rem;
+    padding: 4.5rem 1rem 1.5rem;
+  }
+}
+#page-2 .nav-page .btn:not(.active)::before {
+  background-color: grey;
+}
 
 #page-3 {
+  position: relative;
   display: block;
   padding: 2.5rem;
   color: black;
@@ -616,6 +699,7 @@ html body * {
 #page-3 .content > .block .gallery .slider .counter {
   top: -0.5rem;
   left: -1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-transform: rotateZ(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotateZ(-90deg);
@@ -718,5 +802,41 @@ html body * {
 #page-3 .content > .block .desc > span {
   display: block;
   color: #10e08b;
+}
+#page-3 .nav-page .btn:not(.active)::before {
+  background-color: grey;
+}
+
+#preloader {
+  z-index: 999;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 6vh;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  background: #065132;
+  -webkit-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  transition: 1s opacity;
+}
+#preloader.end {
+  opacity: 0;
+  pointer-events: none;
 }
 
