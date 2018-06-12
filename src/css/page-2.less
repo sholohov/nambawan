@@ -1,0 +1,149 @@
+// out: null
+
+@import 'prop';
+
+#page-2 {
+	display: block;
+	color: black; 
+	background-color: #fff;
+	height: 100vh;
+
+	.content {
+		display: flex;
+		width: 100%;
+		height: 100%;
+
+		> .block {
+			display: flex;
+			width: 50%;
+			height: 100%;
+		}
+		
+		.video {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 2;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			background: url(../img/paratroopers.jpg) center / cover no-repeat rgb(68, 101, 192);
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				background-color: rgba(19, 21, 26, 0.5);
+			}
+
+			.btn {
+				position: relative;
+				display: block;
+				width: 4rem;
+				height: 4rem;
+				line-height: 4rem;
+				text-align: center;
+				border-radius: 50%;
+				border: 3*@rem solid @themeColor;
+				box-sizing: border-box;
+				text-decoration: none;
+
+				&::before {
+					content: '';
+					display: inline-block;
+					color: @themeColor;
+					margin: 0 -0.5rem -0.5rem 0;
+					border-top: 1rem solid transparent;
+					border-bottom: 1rem solid transparent;
+					border-left: 1.5rem solid @themeColor;
+				}
+			}
+
+			h4 {
+				position: relative;
+				color: white;
+				font-size: 1rem;
+			}
+
+			// &::after,
+			// &::before {
+			// 	content: '';
+			// 	display: block;
+			// 	width: 4rem;
+			// 	height: 4rem;
+			// 	line-height: 4rem;
+			// 	position: absolute;
+			// 	top: 50%; left: 50%;
+			// 	border-radius: 50%;
+			// 	text-align: center;
+			// 	color: @themeColor;
+			// 	transform: translate(-50%, -50%)
+			// }
+
+			// &::before {
+			// 	border: 3*@rem solid @themeColor;
+			// }
+			
+			// &::after {
+			// 	content: '▶';
+			// 	margin: 0 0 0 0.25rem;
+			// 	font-size: 2.5rem;
+			// 	color: @themeColor;
+			// }
+			
+		}
+		
+		.description {
+			flex-direction: column;
+			justify-content: center;
+			padding: 0 2.75rem;
+			margin: 0 2rem 0 0;
+
+			.title {
+				margin: 1.5rem 0;
+				font-size: 2.5rem;
+				line-height: 1.125em;
+				font-weight: 800;
+			}
+
+			.text {
+				margin: 1.5rem 0;
+				font-size: 1rem;
+				font-weight: 500;
+				line-height: 1.5em;
+			}
+			
+			.links {
+				display: flex;
+				margin: 1.5rem 0;
+				
+				.item {
+					display: block;
+					width: 50%;
+					padding: 6.5rem 1rem 1.5rem;
+					font-size: 15*@rem;
+					text-decoration: none;
+					text-align: center;
+					font-weight: 500;
+					color: black;
+					background-color: rgb(240, 240, 240);
+					background-position: center 1.5rem;
+					background-repeat: no-repeat;
+					background-size: 4rem;
+					
+					&.earth {
+						background-image: url(../img/world.png);
+						margin: 0 1rem 0 0;
+					}
+
+					&.space {
+						background-image: url(../img/space.png);
+						margin: 0 1rem 0 0;
+					}
+				}
+			}
+		}
+	}
+}

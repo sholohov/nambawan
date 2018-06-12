@@ -1,0 +1,68 @@
+// out: null
+
+@import 'prop';
+
+#aside-left {
+	display: block;
+	position: fixed;
+	width: 4.25rem;
+	height: 100%;
+	background-color: #fff;
+	// .outline;
+
+	.menu {
+		.btnReset;
+		display: block;
+		width: 3.5rem;
+		height: 3.5rem;
+		margin: 2.5rem auto;
+		text-transform: uppercase;
+		background: url(../img/nav/grid_ico.png) top / 1rem no-repeat;
+		opacity: 0.7;
+		
+		> span {
+			font-size: 9*@rem;
+			font-weight: 800;
+			color: gray;
+		}
+	}
+	
+	.social {
+		display: flex;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		list-style: none;
+		padding: 0;
+		text-align: center;
+		transform: rotateZ(-90deg);
+		
+		.link {
+			margin: 0 1rem;
+			
+			> a {
+				display: block;
+				padding: 1rem 0 1rem 2rem;
+				opacity: 0.3;
+				font-size: 12*@rem;
+				font-weight: 600;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: black;
+			}
+
+			&.vk {
+				a {
+					background: url(../img/nav/vk_ico.png) left / 1.4rem no-repeat;
+				}
+			}
+
+			&.inst {
+				a {
+					background: url(../img/nav/instagram_ico.png) left / 1.4rem no-repeat;
+				}
+			}
+		}
+	}
+}

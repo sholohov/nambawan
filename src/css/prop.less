@@ -1,0 +1,45 @@
+//out: null
+
+@themeColor: rgb(16, 224, 139);
+@contentWidth: 100rem;
+@rem: 0.0625rem;
+@em: 0.0625em;
+
+.outline(@color: rgba(255, 166, 0, 0.5)) {
+	outline: 1px solid @color !important;
+
+	* , ::before, ::after {
+		outline: 1px solid @color !important;
+	}
+}
+
+.btnReset() {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border: none;
+	font-size: 1rem;
+	line-height: 1.25em;
+	background-color: transparent;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.font-face(@name: arial, @path: '/', @weight: normal, @style: normal) {
+	@font-face{
+		font-family: @name;
+		src: url('@{path}.ttf') format('truetype');
+		font-weight: @weight;
+		font-style: @style;
+	}
+}
+
+.clearFix() {
+	&::before, &::after {
+		content: '';
+		display: block;
+		height: 1px;
+		width: 100%;
+		margin: 0 0 0 -1px;
+	}
+}

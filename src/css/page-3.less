@@ -1,0 +1,162 @@
+// out: null
+
+@import 'prop';
+
+#page-3 {
+	display: block;
+	padding: 2.5rem;
+	color: black;
+	background-color: #fff;
+
+	> .title {
+		margin: 0 0 2.5rem;
+		font-size: 2.75rem;
+		font-weight: 800;
+		text-align: center;
+		padding: 1em;
+	}
+
+	.content {
+		display: block;
+
+		> .block {
+			display: flex;
+			
+			.gallery,
+			.desc {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 50%;
+			}
+
+			.gallery {
+				.slider {
+					position: relative;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					.counter, .name {
+						position: absolute;
+						width: 0;
+						margin: 0;
+						padding: 0;
+						white-space: nowrap;
+						color: rgb(155, 155, 155);
+					}
+					
+					.counter {
+						top: -0.5rem;
+						left: -1.5rem;
+						transform: rotateZ(-90deg);
+
+						.wrapper {
+							display: inline-block;
+							position: relative;
+							transform: translateX(-100%);
+
+							.current {
+								font-weight: 700;
+							}
+						}
+					}
+					
+					.name {
+						bottom: 3.5rem;
+						right: -1.5rem;
+						transform: rotateZ(-90deg);
+
+						.wrapper {
+							font-size: 10*@rem;
+							text-transform: uppercase;
+						}
+					}
+
+					.viewer {
+						height: 100%;
+						overflow: hidden;
+
+						.pic {
+							margin: 0;
+							padding: 0;
+							
+							@width: 65vh;
+
+							.img {
+								display: block;
+								width: @width;
+								max-width: 40vw;
+								padding: @width / 2 * 0.75 0;
+								background-position: center;
+								background-size: cover;
+								background-repeat: no-repeat;
+							}
+							
+							figcaption {
+								padding: 0.75rem;
+								text-align: center;
+								font-weight: 500;
+								
+								> span {
+									color: @themeColor;
+									font-weight: 700;
+									line-height: 1.5;
+								}
+							}
+						}
+					}
+				}
+
+				.controls {
+					display: flex;
+					position: absolute;
+					top: 0;
+					right: 0;
+					transform: translateX(50%);
+					background-color: #fff;
+
+					.prev, .next {
+						width: 2.25rem;
+						height: 3.25rem;
+						background-color: #fff;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: 1.25rem;
+
+						&:hover {
+							background-size: 1.5rem;
+						}
+						
+						&:active {
+							background-color: rgb(238, 238, 238);
+						}
+					}
+
+					.prev {
+						background-image: url(../img/nav/keyboard-arrow-left.png);
+					}
+
+					.next {
+						background-image: url(../img/nav/keyboard-arrow-right.png);
+					}
+				}
+			}
+
+			.desc {
+				margin: -4.25rem 0 0;
+				font-size: 1.75rem;
+				line-height: 1.25;
+				font-weight: 300;
+				text-align: center;
+				color: #aaa;
+
+				> span {
+					display: block;
+					color: #10e08b;
+				}
+			}
+		}
+	}
+}

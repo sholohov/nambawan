@@ -1,0 +1,57 @@
+// out: null
+
+@import 'prop';
+
+#footer {
+	padding: 2.75rem;
+	color: white;
+	background-color: #303030;
+
+	.persone {
+		display: flex;
+		margin: 0 auto 2.5rem;
+		width: 80%;
+		justify-content: space-around;
+
+		.block {
+
+			.title {
+				color: gray;
+				text-transform: uppercase;
+				font-size: 0.75rem;
+				font-weight: 900;
+			}
+			
+			.text {
+				color: rgb(223, 223, 223);
+				font-size: 1.25rem;
+			}
+		}
+	}
+
+	.reference {
+		.title {
+			font-size: 0.75rem;
+			font-weight: 800;
+			text-align: center;
+			text-transform: uppercase;
+			color: @themeColor;
+		}
+		
+		p {
+			font-size: 14*@rem;
+			text-align: center;
+			color: rgb(212, 212, 212);
+
+			b {
+				color: white;
+			}
+
+			&:nth-of-type(2) {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				color: rgb(158, 158, 158);
+			}
+		}
+	}
+}

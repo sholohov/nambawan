@@ -1,0 +1,115 @@
+// out: null
+
+@import 'prop';
+
+#page-1 {
+	display: flex;
+	padding: 2.5rem 5.5rem 0 3rem;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	color: white;
+	background: rgb(19, 21, 26);
+	// .outline;
+
+	&::before {
+		content: '';
+		position: absolute;
+		opacity: 0.3;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background: url(../img/mountain.jpg) top / cover no-repeat;
+	}
+
+	> .block {
+		display: flex;
+		position: relative;
+		font-weight: 1.25em;
+	}
+
+	> header {
+		padding: 0;
+		display: flex;
+
+		.logo {
+			flex-grow: 1;
+
+			img {
+				display: block;
+				width: 6.75rem;
+				height: auto;
+			}
+		}
+		
+		.call-back {
+			flex-grow: 1;
+			text-align: right;
+
+			.number {
+				font-size: 16*@rem;
+				font-family: Arial;
+				text-decoration: none;
+				font-weight: bold;
+				color: white;
+			}
+			
+			.text {
+				display: block;
+				margin: 0;
+				font-size: 10*@rem;
+				color: rgba(255, 255, 255, 0.8);
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	> .description {
+		.we-nambawan,
+		.what-doing {
+			margin: 1.25rem 0;
+		}
+
+		.we-nambawan {
+			font-size: 1.25rem;
+			color: #10e08b;
+		}
+		
+		.what-doing {
+			font-size: 3.15rem;
+			line-height: 1.15em;
+			font-weight: 800;
+		}
+	}
+
+	> .services {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		max-width: 80%;
+
+		.item {
+			width: 30%;
+			padding: 1rem 0;
+			margin: 0 3rem 0 0;
+			font-size: 14*@rem;
+			font-weight: 600;
+			line-height: 1.125em;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+		}
+	}
+
+	> .btn {
+		display: flex;
+		align-self: flex-end;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding: 1.125rem 2.5rem 1.125rem 4.125rem;
+		font-size: 15*@rem;
+		text-decoration: none;
+		font-weight: bold;
+		color: white;
+		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
+	}
+}
