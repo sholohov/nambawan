@@ -72,14 +72,20 @@
 		}
 
 		.we-nambawan {
+			opacity: 0;
 			font-size: 1.25rem;
 			color: #10e08b;
+			transform: translateY(-2rem);
+			transition: opacity 1s 1s ease-in, transform 1s 1s;
 		}
 		
 		.what-doing {
+			opacity: 0;
 			font-size: 3.15rem;
 			line-height: 1.15em;
 			font-weight: 800;
+			transform: translateX(-2rem);
+			transition: opacity 1s 2.5s ease-in, transform 1s 2.5s;
 
 			@media screen and (max-width: 79em) {
 				font-size: 2rem;
@@ -94,6 +100,7 @@
 		max-width: 80%;
 
 		.item {
+			opacity: 0;
 			width: 30%;
 			padding: 1rem 0;
 			margin: 0 3rem 0 0;
@@ -101,10 +108,20 @@
 			font-weight: 600;
 			line-height: 1.125em;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+			transform: translateY(100%);
+
+			.for(@i: 1) when (@i =< 3) {
+				&:nth-of-type(@{i}) {
+					transition: opacity 0.5s 3s + @i / 2 ease-in, transform 0.5s 3s + @i / 2;
+				}
+				.for(@i + 1);
+			}
+			.for();
 		}
 	}
 
 	> .btn {
+		opacity: 0;
 		display: flex;
 		align-self: flex-end;
 		justify-content: center;
@@ -116,9 +133,42 @@
 		font-weight: bold;
 		color: white;
 		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
+		transition: opacity 0.5s 6.5s ease-in;
 	}
 
 	.nav-page .btn:not(.active)::before {
 		background-color: white;
+	}
+}
+
+/* Animations */
+
+body.loaded #page-1 {
+	> .description {
+		.we-nambawan,
+		.what-doing {
+			margin: 1.25rem 0;
+		}
+
+		.we-nambawan {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		
+		.what-doing {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	> .services {
+		.item {
+			opacity: 1;
+			transform: translateY(0)
+		}
+	}
+
+	> .btn {
+		opacity: 1;
 	}
 }
