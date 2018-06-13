@@ -5,7 +5,8 @@
 #page-1 {
 	position: relative;
 	display: flex;
-	padding: 2.5rem 5.5rem 0 3rem;
+	font-size: 2vh;
+	padding: 2.5em 5.5em 0 3em;
 	flex-direction: column;
 	justify-content: space-between;
 	position: relative;
@@ -48,11 +49,15 @@
 			text-align: right;
 
 			.number {
+				display: block;
 				font-size: 16*@rem;
 				font-family: Arial;
 				text-decoration: none;
 				font-weight: bold;
 				color: white;
+				transition: transform 0.3s;
+				transform: translateY(0);
+				pointer-events: auto;
 			}
 			
 			.text {
@@ -61,6 +66,17 @@
 				font-size: 10*@rem;
 				color: rgba(255, 255, 255, 0.8);
 				text-transform: uppercase;
+				opacity: 1;
+				transition: opacity 0.3s;
+			}
+
+			&:hover {
+				.number {
+					transform: translateY(0.5em);
+				}
+				.text {
+					opacity: 0;
+				}
 			}
 		}
 	}
@@ -73,7 +89,7 @@
 
 		.we-nambawan {
 			opacity: 0;
-			font-size: 1.25rem;
+			font-size: 3vh;
 			color: #10e08b;
 			transform: translateY(-2rem);
 			transition: opacity 1s 1s ease-in, transform 1s 1s;
@@ -81,14 +97,14 @@
 		
 		.what-doing {
 			opacity: 0;
-			font-size: 3.15rem;
+			font-size: 8vh;
 			line-height: 1.15em;
 			font-weight: 800;
 			transform: translateX(-2rem);
 			transition: opacity 1s 2.5s ease-in, transform 1s 2.5s;
 
 			@media screen and (max-width: 79em) {
-				font-size: 2rem;
+				font-size: 6vh;
 			}
 		}
 	}
@@ -102,9 +118,9 @@
 		.item {
 			opacity: 0;
 			width: 30%;
-			padding: 1rem 0;
-			margin: 0 3rem 0 0;
-			font-size: 14*@rem;
+			padding: 1em 0;
+			margin: 0 3em 0 0;
+			font-size: 2.25vh;
 			font-weight: 600;
 			line-height: 1.125em;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.8);
@@ -112,11 +128,15 @@
 
 			.for(@i: 1) when (@i =< 3) {
 				&:nth-of-type(@{i}) {
-					transition: opacity 0.5s 3s + @i / 2 ease-in, transform 0.5s 3s + @i / 2;
+					transition: opacity 0.5s 3s + @i / 2 ease-in, transform 0.75s 3s + @i / 2 cubic-bezier(.29,1.54,.74,1);
 				}
 				.for(@i + 1);
 			}
 			.for();
+
+			@media screen and (max-width: 79em) {
+				font-size: 0.75rem;
+			}
 		}
 	}
 
@@ -132,8 +152,14 @@
 		text-decoration: none;
 		font-weight: bold;
 		color: white;
-		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
-		transition: opacity 0.5s 6.5s ease-in;
+		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat @themeColor;
+		transition: opacity 0.5s 6.5s ease-in, transform 0.2s;
+		pointer-events: auto;
+
+		&:hover {
+			transform: scale(1.05);
+			background-color: @themeColor - 20%;
+		}
 	}
 
 	.nav-page .btn:not(.active)::before {

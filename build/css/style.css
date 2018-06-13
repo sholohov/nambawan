@@ -104,12 +104,19 @@ html body * {
   margin: 2.5rem auto;
   text-transform: uppercase;
   background: url(../img/nav/grid_ico.png) top / 1rem no-repeat;
-  opacity: 0.7;
+  opacity: 0.8;
+  pointer-events: auto;
 }
 #aside-left .menu > span {
   font-size: 0.5625rem;
   font-weight: 800;
   color: gray;
+}
+#aside-left .menu:hover {
+  opacity: 1;
+}
+#aside-left .menu:hover > span {
+  color: #10e08b;
 }
 #aside-left .social {
   display: -webkit-box;
@@ -139,6 +146,10 @@ html body * {
   text-decoration: none;
   text-transform: uppercase;
   color: black;
+  pointer-events: auto;
+}
+#aside-left .social .link > a:hover {
+  opacity: 0.7;
 }
 #aside-left .social .link.vk a {
   background: url(../img/nav/vk_ico.png) left / 1.4rem no-repeat;
@@ -260,6 +271,11 @@ html body * {
   height: 100%;
   margin: 0 0 0 4.25rem;
   background-color: grey;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #move-to-top {
@@ -279,6 +295,7 @@ html body * {
   background: white;
   -webkit-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
           box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
 }
 
 .nav-page {
@@ -312,6 +329,15 @@ html body * {
   clear: both;
   height: 1rem;
   width: 50%;
+  -webkit-transform-origin: right;
+      -ms-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  pointer-events: auto;
 }
 .nav-page .block .btn::before {
   content: '';
@@ -322,9 +348,15 @@ html body * {
 }
 .nav-page .block .btn.active {
   width: 100%;
+  pointer-events: none;
 }
 .nav-page .block .btn.active::before {
   background-color: #10e08b;
+}
+.nav-page .block .btn:hover {
+  -webkit-transform: scale(1.5, 1);
+      -ms-transform: scale(1.5, 1);
+          transform: scale(1.5, 1);
 }
 
 #page-1 {
@@ -332,7 +364,8 @@ html body * {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 2.5rem 5.5rem 0 3rem;
+  font-size: 2vh;
+  padding: 2.5em 5.5em 0 3em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -392,11 +425,21 @@ html body * {
   text-align: right;
 }
 #page-1 > header .call-back .number {
+  display: block;
   font-size: 1rem;
   font-family: Arial;
   text-decoration: none;
   font-weight: bold;
   color: white;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: auto;
 }
 #page-1 > header .call-back .text {
   display: block;
@@ -404,6 +447,18 @@ html body * {
   font-size: 0.625rem;
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+#page-1 > header .call-back:hover .number {
+  -webkit-transform: translateY(0.5em);
+      -ms-transform: translateY(0.5em);
+          transform: translateY(0.5em);
+}
+#page-1 > header .call-back:hover .text {
+  opacity: 0;
 }
 #page-1 > .description .we-nambawan,
 #page-1 > .description .what-doing {
@@ -411,7 +466,7 @@ html body * {
 }
 #page-1 > .description .we-nambawan {
   opacity: 0;
-  font-size: 1.25rem;
+  font-size: 3vh;
   color: #10e08b;
   -webkit-transform: translateY(-2rem);
       -ms-transform: translateY(-2rem);
@@ -424,7 +479,7 @@ html body * {
 }
 #page-1 > .description .what-doing {
   opacity: 0;
-  font-size: 3.15rem;
+  font-size: 8vh;
   line-height: 1.15em;
   font-weight: 800;
   -webkit-transform: translateX(-2rem);
@@ -438,7 +493,7 @@ html body * {
 }
 @media screen and (max-width: 79em) {
   #page-1 > .description .what-doing {
-    font-size: 2rem;
+    font-size: 6vh;
   }
 }
 #page-1 > .services {
@@ -453,9 +508,9 @@ html body * {
 #page-1 > .services .item {
   opacity: 0;
   width: 30%;
-  padding: 1rem 0;
-  margin: 0 3rem 0 0;
-  font-size: 0.875rem;
+  padding: 1em 0;
+  margin: 0 3em 0 0;
+  font-size: 2.25vh;
   font-weight: 600;
   line-height: 1.125em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
@@ -464,25 +519,30 @@ html body * {
           transform: translateY(100%);
 }
 #page-1 > .services .item:nth-of-type(1) {
-  -webkit-transition: opacity 0.5s 3.5s ease-in, -webkit-transform 0.5s 3.5s;
-  transition: opacity 0.5s 3.5s ease-in, -webkit-transform 0.5s 3.5s;
-  -o-transition: opacity 0.5s 3.5s ease-in, transform 0.5s 3.5s;
-  transition: opacity 0.5s 3.5s ease-in, transform 0.5s 3.5s;
-  transition: opacity 0.5s 3.5s ease-in, transform 0.5s 3.5s, -webkit-transform 0.5s 3.5s;
+  -webkit-transition: opacity 0.5s 3.5s ease-in, -webkit-transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 3.5s ease-in, -webkit-transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  -o-transition: opacity 0.5s 3.5s ease-in, transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 3.5s ease-in, transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 3.5s ease-in, transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1), -webkit-transform 0.75s 3.5s cubic-bezier(0.29, 1.54, 0.74, 1);
 }
 #page-1 > .services .item:nth-of-type(2) {
-  -webkit-transition: opacity 0.5s 4s ease-in, -webkit-transform 0.5s 4s;
-  transition: opacity 0.5s 4s ease-in, -webkit-transform 0.5s 4s;
-  -o-transition: opacity 0.5s 4s ease-in, transform 0.5s 4s;
-  transition: opacity 0.5s 4s ease-in, transform 0.5s 4s;
-  transition: opacity 0.5s 4s ease-in, transform 0.5s 4s, -webkit-transform 0.5s 4s;
+  -webkit-transition: opacity 0.5s 4s ease-in, -webkit-transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4s ease-in, -webkit-transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1);
+  -o-transition: opacity 0.5s 4s ease-in, transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4s ease-in, transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4s ease-in, transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1), -webkit-transform 0.75s 4s cubic-bezier(0.29, 1.54, 0.74, 1);
 }
 #page-1 > .services .item:nth-of-type(3) {
-  -webkit-transition: opacity 0.5s 4.5s ease-in, -webkit-transform 0.5s 4.5s;
-  transition: opacity 0.5s 4.5s ease-in, -webkit-transform 0.5s 4.5s;
-  -o-transition: opacity 0.5s 4.5s ease-in, transform 0.5s 4.5s;
-  transition: opacity 0.5s 4.5s ease-in, transform 0.5s 4.5s;
-  transition: opacity 0.5s 4.5s ease-in, transform 0.5s 4.5s, -webkit-transform 0.5s 4.5s;
+  -webkit-transition: opacity 0.5s 4.5s ease-in, -webkit-transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4.5s ease-in, -webkit-transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  -o-transition: opacity 0.5s 4.5s ease-in, transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4.5s ease-in, transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+  transition: opacity 0.5s 4.5s ease-in, transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1), -webkit-transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
+}
+@media screen and (max-width: 79em) {
+  #page-1 > .services .item {
+    font-size: 0.75rem;
+  }
 }
 #page-1 > .btn {
   opacity: 0;
@@ -508,9 +568,18 @@ html body * {
   font-weight: bold;
   color: white;
   background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
-  -webkit-transition: opacity 0.5s 6.5s ease-in;
-  -o-transition: opacity 0.5s 6.5s ease-in;
-  transition: opacity 0.5s 6.5s ease-in;
+  -webkit-transition: opacity 0.5s 6.5s ease-in, -webkit-transform 0.2s;
+  transition: opacity 0.5s 6.5s ease-in, -webkit-transform 0.2s;
+  -o-transition: opacity 0.5s 6.5s ease-in, transform 0.2s;
+  transition: opacity 0.5s 6.5s ease-in, transform 0.2s;
+  transition: opacity 0.5s 6.5s ease-in, transform 0.2s, -webkit-transform 0.2s;
+  pointer-events: auto;
+}
+#page-1 > .btn:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: #00cc77;
 }
 #page-1 .nav-page .btn:not(.active)::before {
   background-color: white;
@@ -615,6 +684,12 @@ body.loaded #page-1 > .btn {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  pointer-events: auto;
 }
 #page-2 .content .video .btn::before {
   content: '';
@@ -624,6 +699,11 @@ body.loaded #page-1 > .btn {
   border-top: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
   border-left: 1.5rem solid #10e08b;
+}
+#page-2 .content .video .btn:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 #page-2 .content .video h4 {
   position: relative;
@@ -681,6 +761,12 @@ body.loaded #page-1 > .btn {
   background-repeat: no-repeat;
   -webkit-background-size: 4rem 4rem;
           background-size: 4rem;
+  pointer-events: auto;
+  -webkit-transition: color 0.2s, -webkit-transform 0.2s;
+  transition: color 0.2s, -webkit-transform 0.2s;
+  -o-transition: transform 0.2s, color 0.2s;
+  transition: transform 0.2s, color 0.2s;
+  transition: transform 0.2s, color 0.2s, -webkit-transform 0.2s;
 }
 #page-2 .content .description .links .item.earth {
   background-image: url(../img/world.png);
@@ -689,6 +775,12 @@ body.loaded #page-1 > .btn {
 #page-2 .content .description .links .item.space {
   background-image: url(../img/space.png);
   margin: 0 1rem 0 0;
+}
+#page-2 .content .description .links .item:hover {
+  color: #00cc77;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 @media screen and (max-width: 79em) {
   #page-2 .content .description .links .item {
@@ -848,6 +940,7 @@ body.loaded #page-1 > .btn {
   background-repeat: no-repeat;
   -webkit-background-size: 1.25rem 1.25rem;
           background-size: 1.25rem;
+  pointer-events: auto;
 }
 #page-3 .content > .block .gallery .controls .prev:hover,
 #page-3 .content > .block .gallery .controls .next:hover {

@@ -18,12 +18,21 @@
 		margin: 2.5rem auto;
 		text-transform: uppercase;
 		background: url(../img/nav/grid_ico.png) top / 1rem no-repeat;
-		opacity: 0.7;
+		opacity: 0.8;
+		pointer-events: auto;
 		
 		> span {
 			font-size: 9*@rem;
 			font-weight: 800;
 			color: gray;
+		}
+
+		&:hover {
+			opacity: 1;
+
+			> span {
+				color: @themeColor;
+			}
 		}
 	}
 	
@@ -50,6 +59,11 @@
 				text-decoration: none;
 				text-transform: uppercase;
 				color: black;
+				pointer-events: auto;
+
+				&:hover {
+					opacity: 0.7;
+				}
 			}
 
 			&.vk {
