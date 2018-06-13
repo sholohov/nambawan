@@ -279,8 +279,8 @@ html body * {
 }
 
 #move-to-top {
-  display: none;
-  position: absolute;
+  opacity: 0;
+  position: fixed;
   bottom: 1rem;
   right: 1rem;
   padding: 0;
@@ -293,8 +293,36 @@ html body * {
   border: none;
   cursor: pointer;
   background: white;
-  -webkit-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.2s;
+  transition: opacity 0.3s, -webkit-transform 0.2s;
+  -o-transition: opacity 0.3s, transform 0.2s;
+  transition: opacity 0.3s, transform 0.2s;
+  transition: opacity 0.3s, transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform: translateY(1rem);
+      -ms-transform: translateY(1rem);
+          transform: translateY(1rem);
+}
+#move-to-top:before {
+  position: relative;
+  display: inline-block;
+  top: 0.25rem;
+  content: '';
+  width: 0.75rem;
+  height: 0.75rem;
+  border-top: 0.25rem solid grey;
+  border-right: 0.25rem solid gray;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+#move-to-top.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
   pointer-events: auto;
 }
 
