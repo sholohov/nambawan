@@ -72,8 +72,7 @@ html body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   font: 1em/1.25em 'Raleway', Arial, Helvetica, 'sans-serif';
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
 }
 html body * {
   -webkit-box-sizing: border-box;
@@ -81,11 +80,20 @@ html body * {
 }
 
 #aside-left {
-  display: block;
   position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 4.25rem;
   height: 100%;
   background-color: #fff;
+  z-index: 100;
 }
 #aside-left .menu {
   padding: 0;
@@ -267,15 +275,33 @@ html body * {
 }
 
 #main {
+  position: relative;
   display: block;
   height: 100%;
   margin: 0 0 0 4.25rem;
-  background-color: grey;
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  -webkit-perspective: 20vh;
+          perspective: 20vh;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: auto;
+}
+#main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/mountain.jpg) top / cover no-repeat;
+  -webkit-transform: translateZ(-15vh) scale(1.76);
+          transform: translateZ(-15vh) scale(1.76);
 }
 
 #move-to-top {
@@ -407,17 +433,9 @@ html body * {
   height: 100vh;
   overflow: hidden;
   color: white;
-  background: #13151a;
-}
-#page-1::before {
-  content: '';
-  position: absolute;
-  opacity: 0.3;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url(../img/mountain.jpg) top / cover no-repeat;
+  background: rgba(19, 21, 26, 0.5);
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 #page-1 > .block {
   display: -webkit-box;
@@ -526,7 +544,10 @@ html body * {
   transition: opacity 1s 2.5s ease-in, transform 1s 2.5s;
   transition: opacity 1s 2.5s ease-in, transform 1s 2.5s, -webkit-transform 1s 2.5s;
 }
-@media screen and (max-width: 79em) {
+@media screen and (max-width: 64em) {
+  #page-1 > .description .we-nambawan {
+    font-size: 3vh;
+  }
   #page-1 > .description .what-doing {
     font-size: 6vh;
   }
@@ -574,7 +595,7 @@ html body * {
   transition: opacity 0.5s 4.5s ease-in, transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
   transition: opacity 0.5s 4.5s ease-in, transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1), -webkit-transform 0.75s 4.5s cubic-bezier(0.29, 1.54, 0.74, 1);
 }
-@media screen and (max-width: 79em) {
+@media screen and (max-width: 64em) {
   #page-1 > .services .item {
     font-size: 0.75rem;
   }
@@ -597,12 +618,12 @@ html body * {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  padding: 1.125rem 2.5rem 1.125rem 4.125rem;
+  padding: 1.125em 2.5em 1.125em 4.125em;
   font-size: 0.9375rem;
   text-decoration: none;
   font-weight: bold;
   color: white;
-  background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat #10e08b;
+  background: url(../img/nav/long-arrow-down.png) 1.5em center / 2em no-repeat #10e08b;
   -webkit-transition: opacity 0.5s 6.5s ease-in, -webkit-transform 0.2s;
   transition: opacity 0.5s 6.5s ease-in, -webkit-transform 0.2s;
   -o-transition: opacity 0.5s 6.5s ease-in, transform 0.2s;
@@ -615,6 +636,11 @@ html body * {
       -ms-transform: scale(1.05);
           transform: scale(1.05);
   background-color: #00cc77;
+}
+@media screen and (max-width: 48em) {
+  #page-1 > .btn {
+    font-size: 0.75rem;
+  }
 }
 #page-1 .nav-page .btn:not(.active)::before {
   background-color: white;
@@ -652,6 +678,8 @@ body.loaded #page-1 > .btn {
   color: black;
   background-color: #fff;
   height: 100vh;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 #page-2 .content {
   display: -webkit-box;
@@ -666,8 +694,12 @@ body.loaded #page-1 > .btn {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
   height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 50%;
 }
 #page-2 .content .video {
   display: -webkit-box;
@@ -742,8 +774,9 @@ body.loaded #page-1 > .btn {
 }
 #page-2 .content .video h4 {
   position: relative;
-  color: white;
   font-size: 1rem;
+  text-align: center;
+  color: white;
 }
 #page-2 .content .description {
   -webkit-box-orient: vertical;
@@ -763,11 +796,6 @@ body.loaded #page-1 > .btn {
   font-size: 2.5rem;
   line-height: 1.125em;
   font-weight: 800;
-}
-@media screen and (max-width: 79em) {
-  #page-2 .content .description .title {
-    font-size: 2rem;
-  }
 }
 #page-2 .content .description .text {
   margin: 1.5rem 0;
@@ -817,11 +845,29 @@ body.loaded #page-1 > .btn {
       -ms-transform: scale(1.05);
           transform: scale(1.05);
 }
-@media screen and (max-width: 79em) {
+@media screen and (max-width: 64em) {
+  #page-2 .content .video {
+    width: auto;
+  }
+  #page-2 .content .description {
+    width: auto;
+    max-width: 60%;
+    padding: 0 2.75rem 0 1.5rem;
+  }
+  #page-2 .content .description .title {
+    margin: 1rem 0;
+    font-size: 1.75rem;
+  }
+  #page-2 .content .description .text {
+    margin: 1rem 0;
+  }
+  #page-2 .content .description .links {
+    margin: 1rem 0;
+  }
   #page-2 .content .description .links .item {
-    -webkit-background-size: 2rem 2rem;
-            background-size: 2rem;
-    padding: 4.5rem 1rem 1.5rem;
+    padding: 4rem 1rem 1rem;
+    -webkit-background-size: 1.5rem 1.5rem;
+            background-size: 1.5rem;
   }
 }
 #page-2 .nav-page .btn:not(.active)::before {
@@ -834,6 +880,8 @@ body.loaded #page-1 > .btn {
   padding: 2.5rem;
   color: black;
   background-color: #fff;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 #page-3 > .title {
   margin: 0 0 2.5rem;

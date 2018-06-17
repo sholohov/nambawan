@@ -8,6 +8,7 @@
 	color: black; 
 	background-color: #fff;
 	height: 100vh;
+	transform: translateZ(0);
 
 	.content {
 		display: flex;
@@ -16,8 +17,9 @@
 
 		> .block {
 			display: flex;
-			width: 50%;
 			height: 100%;
+			flex-grow: 1;
+			width: 50%;
 		}
 		
 		.video {
@@ -70,8 +72,9 @@
 
 			h4 {
 				position: relative;
-				color: white;
 				font-size: 1rem;
+				text-align: center;
+				color: white;
 			}
 		}
 		
@@ -80,18 +83,14 @@
 			justify-content: center;
 			padding: 0 2.75rem;
 			margin: 0 2rem 0 0;
-
+			
 			.title {
 				margin: 1.5rem 0;
 				font-size: 2.5rem;
 				line-height: 1.125em;
 				font-weight: 800;
-
-				@media screen and (max-width: 79em) {
-					font-size: 2rem;
-				}
 			}
-
+			
 			.text {
 				margin: 1.5rem 0;
 				font-size: 1rem;
@@ -123,20 +122,44 @@
 						background-image: url(../img/world.png);
 						margin: 0 1rem 0 0;
 					}
-
+					
 					&.space {
 						background-image: url(../img/space.png);
 						margin: 0 1rem 0 0;
 					}
-
+					
 					&:hover {
 						color: @themeColor - 20%;
 						transform: scale(1.05);
 					}
+				}
+			}
+		}
+		
+		@media screen and (max-width: (@laptop)) {
+			.video {
+				width: auto;
+			}
+			.description {
+				width: auto;
+				max-width: 60%;
+				padding: 0 2.75rem 0 1.5rem;
+				
+				.title {
+					margin: 1rem 0;
+					font-size: 1.75rem;
+				}
+				
+				.text {
+					margin: 1rem 0;
+				}
+				
+				.links {
+					margin: 1rem 0;
 
-					@media screen and (max-width: 79em) {
-						background-size: 2rem;
-						padding: 4.5rem 1rem 1.5rem;
+					.item {
+						padding: 4rem 1rem 1rem;
+						background-size: 1.5rem;
 					}
 				}
 			}

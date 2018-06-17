@@ -1,6 +1,6 @@
-function scrollPageToTop() {
+function scrollPageToTop(el) {
 	function getScroll() {
-		return document.documentElement.scrollTop;
+		return el.scrollTop || document.documentElement.scrollTop;
 	}
 	function run() {
 		if (getScroll() > 0) {

@@ -13,16 +13,9 @@
 	height: 100vh;
 	overflow: hidden;
 	color: white;
-	background: rgb(19, 21, 26);
+	background: rgba(19, 21, 26, 0.5);
+	transform: translateZ(0);
 	// .outline;
-
-	&::before {
-		content: '';
-		position: absolute;
-		opacity: 0.3;
-		top: 0; left: 0; right: 0; bottom: 0;
-		background: url(../img/mountain.jpg) top / cover no-repeat;
-	}
 
 	> .block {
 		display: flex;
@@ -107,8 +100,13 @@
 			font-weight: 800;
 			transform: translateX(-2rem);
 			transition: opacity 1s 2.5s ease-in, transform 1s 2.5s;
+		}
 
-			@media screen and (max-width: 79em) {
+		@media screen and (max-width: (@laptop)) {
+			.we-nambawan {
+				font-size: 3vh;
+			}
+			.what-doing {
 				font-size: 6vh;
 			}
 		}
@@ -139,7 +137,7 @@
 			}
 			.for();
 
-			@media screen and (max-width: 79em) {
+			@media screen and (max-width: (@laptop)) {
 				font-size: 0.75rem;
 			}
 		}
@@ -152,18 +150,22 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		padding: 1.125rem 2.5rem 1.125rem 4.125rem;
+		padding: 1.125em 2.5em 1.125em 4.125em;
 		font-size: 15*@rem;
 		text-decoration: none;
 		font-weight: bold;
 		color: white;
-		background: url(../img/nav/long-arrow-down.png) 1.5rem center / 2rem no-repeat @themeColor;
+		background: url(../img/nav/long-arrow-down.png) 1.5em center / 2em no-repeat @themeColor;
 		transition: opacity 0.5s 6.5s ease-in, transform 0.2s;
 		pointer-events: auto;
 
 		&:hover {
 			transform: scale(1.05);
 			background-color: @themeColor - 20%;
+		}
+
+		@media screen and (max-width: (@tablet)) {
+			font-size: 12*@rem;
 		}
 	}
 
