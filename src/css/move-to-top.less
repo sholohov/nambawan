@@ -5,8 +5,9 @@
 #move-to-top {
 	opacity: 0;
 	position: fixed;
-	bottom: 1rem;
-	right: 2rem;
+	margin: 0 1rem 1rem 0;
+	bottom: 0;
+	right: 0;
 	padding: 0;
 	line-height: 1;
 	height: 3rem;
@@ -19,7 +20,7 @@
 	box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
 	pointer-events: none;
 	transition: opacity 0.3s, transform 0.2s;
-	transform: translateY(1rem);
+	transform: translateY(1rem) translateZ(0);
 
 	&:before {
 		position: relative;
@@ -34,7 +35,7 @@
 	}
 
 	&.visible {
-		opacity: 0.8;
+		opacity: 1;
 		transform: translateY(0);
 		pointer-events: auto;
 	}
