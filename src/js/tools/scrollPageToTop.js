@@ -1,10 +1,13 @@
 function scrollPageToTop(el) {
+	el = el || document.documentElement;
+
 	function getScroll() {
-		return el.scrollTop || document.documentElement.scrollTop;
+		return el.scrollTop;
 	}
+	
 	function run() {
 		if (getScroll() > 0) {
-			window.scrollBy(0, -Math.max((getScroll() / 6), 1));
+			el.scrollBy(0, -Math.max((getScroll() / 6), 1));
 			requestAnimationFrame(run);
 		}
 	}

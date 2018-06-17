@@ -29,6 +29,7 @@ function scrollBtnInit() {
 
 	btn.addEventListener('click', () => {
 		Tools.scrollPageToTop(main);
+		console.log('click');
 	});
 }
 
