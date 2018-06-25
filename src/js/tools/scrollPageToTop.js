@@ -1,3 +1,7 @@
+/**
+ * Прокрутка эоемента вверх
+ * @param {Element} el Контейнер для прокрутки
+ */
 function scrollPageToTop(el) {
 	el = el || document.documentElement;
 

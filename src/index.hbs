@@ -31,14 +31,18 @@
 
 <body>
 	{{> aside-left}}
+
 	<main id="main">
-		{{> page-1}}
-		{{> page-2}}
-		{{> page-3}}
+		{{> pages/page-1}}
+		{{> pages/page-2}}
+		{{> pages/page-3}}
 		{{> footer}}
 	</main>
+	
 	<button id="move-to-top"></button>
+	
 	{{> preloader}}
+	
 	<div id="no-supported-message">
 		<h3 class="title">Внимание!</h3>
 		<p class="body">Для лучшего отображения соержимого сайта рекомендуем браузеры:<br>Chrome, Safari, Opera 15+, Firefox 57+</p>

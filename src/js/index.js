@@ -6,9 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
 	const main = document.querySelector('#main');
 	const btn = document.querySelector('#move-to-top');
 
-	btn.style.right = main.scrollWidth - main.clientWidth + 'px';
-	main.style.overflow = "hidden";
+	/**
+	 * Ширина вертикального скроллбара
+	 * @param {Element} el 
+	 */
+	function getScrollbarWidth(el) {
+		return el.offsetWidth - el.clientWidth;
+	}
 
+	btn.style.right = getScrollbarWidth(main) + 'px';
+
+	Tools.onWindowResize(() => {
+		btn.style.right = getScrollbarWidth(main) + 'px';
+	}, 0);
+
+	main.style.overflow = "hidden";
+	
 	/**
 	 * Показывает кнопку скрола когда страница ниже высоты экрана
 	 */
@@ -48,7 +61,6 @@ function scrollBtnInit() {
 
 	btn.addEventListener('click', () => {
 		Tools.scrollPageToTop(main);
-		console.log('click');
 	});
 }
 
@@ -57,7 +69,7 @@ function onWindowLoad() {
 	const preloader = document.querySelector("#preloader");
 	const main = document.querySelector('#main');
 	
-	// показ экрана загрузкич
+	// показ экрана загрузкичика
 	preloader.classList.add("end");
 	main.style.overflow = "";
 	document.body.classList.add("loaded");
