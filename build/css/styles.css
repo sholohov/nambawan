@@ -1497,4 +1497,3 @@ body.loaded #page-1 > .btn {
 #page-3 .nav-page .btn:not(.active)::before {
   background-color: grey;
 }
-

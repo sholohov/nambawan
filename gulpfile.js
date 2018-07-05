@@ -63,7 +63,7 @@ gulp.task('styles', function() {
 	return gulp
 		.src(path.styles)
 		.pipe(less())
-		.pipe(concat('style.css'))
+		.pipe(concat('styles.css'))
 		.pipe(
 			autoprefixer({
 				browsers: ['last 20 versions']
